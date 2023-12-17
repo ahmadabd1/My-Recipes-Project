@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My recipe Project</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css"> -->
+
+</head>
+
+<body>
+    <div class="form-wrapper cf">
+        <input type="text" class="search-box" placeholder="Search For a Product..">
+        <button id="searchBtn" type="submit">Search</button>
+        <div>
+            <div id="checkbox">
+                <input type="checkbox" id="Gluten" name="Gluten"  />
+                <label for="Gluten">Gluten</label>
+            </div>
+
+            <div>
+                <input type="checkbox" id="Dietary" name="Dietary" />
+                <label for=" Dietary"> Dietary</label>
+            </div>
+        </div>
+
+    </div>
+    <div id="results"></div>
+
+    <script id="resultsRecipes-template" type="text/x-handlebars-template">
+
+        <div class="card-deck">
+            {{#each dataRecipes}}
+            <div class="card">
+                <h1 class="card-title">{{this.title}}</h1>
+                <img src="{{this.imgUrl}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h1 class="card-text">Ingredients</h1>
+                  <ul>
+                  {{#each this.ingredients}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+                 </div>
+            </div>
+            {{/each}}
+        </div>
+
+    </script>
+
+
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
