@@ -3,11 +3,13 @@ const templateRecipes = Handlebars.compile(sourceRecipes)
 
 const showDivResult = $("#results")
 const searchBox = $(".search-box")
+class Render{
 
-const displayTheRecipes = function (dataRecipes) {
-    showDivResult.empty()
-    let someHTML = templateRecipes({ dataRecipes: dataRecipes })
-    showDivResult.append(someHTML)
-
+    displayTheRecipes(dataRecipes) {
+        showDivResult.empty()
+        let someHTML = templateRecipes({ dataRecipes: dataRecipes })
+        showDivResult.append(someHTML)
+    
+    }
 }
 

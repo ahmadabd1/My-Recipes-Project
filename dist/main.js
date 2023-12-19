@@ -1,14 +1,15 @@
+
+const render = new Render()
+const apiModuel = new APIModuel()
+
+
+
+
 $("#results").on("click", ".card-img-top", function () {
-    let inputValue = searchBox.val()
-    var checkBoxGluten = $("#Gluten").is(':checked');
-    var checkBoxDietary = $("#Dietary").is(':checked');
-    $.get(`/recipes/${inputValue}?gluten=${checkBoxGluten}&dieary=${checkBoxDietary}`).then(data => {
-        
-        console.log(data)
-        const searchObject = data.find((ind) => ind.imgUrl == $(this).attr('src'));
-        alert(searchObject.ingredients[0])
-       
-    })
+   
+    const searchObject = $(this).closest(".card").find("li:first").text()
+    alert("The First Ingredient for this Recipe is: " + searchObject)
+      
 })
 
 
@@ -17,9 +18,9 @@ $("#searchBtn").on("click", () => {
     var checkBoxGluten = $("#Gluten").is(':checked');
     var checkBoxDietary = $("#Dietary").is(':checked');
 
-    $.get(`/recipes/${inputValue}?gluten=${checkBoxGluten}&dieary=${checkBoxDietary}`)
+    apiModuel.getAllData(inputValue,checkBoxGluten,checkBoxDietary)
     .then(data => {
-        displayTheRecipes(data)
+        render.displayTheRecipes(data)
     })
 
 })
