@@ -18,9 +18,11 @@
 .form-wrapper {
   width: 450px;
   padding: 15px;
-  margin: 150px auto 50px auto;
-  background: #444;
-  background: rgba(0, 0, 0, .2);
+  margin: -150px auto 50px auto;
+   background: #ff9600; 
+   
+   opacity: 1;
+  /* background: rgba(0, 0, 0, .2); */
   border-radius: 10px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, .4) inset, 0 1px 0 rgba(255, 255, 255, .2);
 }
@@ -132,3 +134,39 @@ label{
     text-align: left;
     font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
 }
+.logo{
+  position: relative;
+  display: block;
+  /* text-align: center; */
+  margin: auto;
+  z-index: -1;
+}
+.logo>img{
+  width: 100vw;
+  height: 50vh;
+}
+.logo>h1{
+  position: absolute;
+  right: 50%;
+  transform: translate(50%,0);
+  
+
+color: white;
+}
+
+.btnaddcart{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  background: slateblue;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+
+}
+.btnaddcart:hover{
+  transform: translateY(-10px);
+}
+

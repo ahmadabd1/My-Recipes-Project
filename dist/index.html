@@ -7,16 +7,22 @@
     <title>My recipe Project</title>
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css"> -->
+   
 
 </head>
 
 <body>
+
+    <div class="logo">
+        <h1>The Menu Of My Recipes ^_^</h1>
+        <img src="https://img.freepik.com/premium-vector/best-recipes-logo-with-yellow-pan_23-2147492924.jpg?w=826"></img>
+    </div>
     <div class="form-wrapper cf">
         <input id="input" type="text" class="search-box" placeholder="Search For a Product..">
-        <button id="searchBtn" type="submit" >Search</button>
+        <button id="searchBtn" type="submit">Search</button>
         <div id="checkbox">
-            <div >
-                <input class="check" type="checkbox" id="Gluten" name="Gluten"  />
+            <div>
+                <input class="check" type="checkbox" id="Gluten" name="Gluten" />
                 <label for="Gluten">Gluten</label>
             </div>
 
@@ -25,17 +31,21 @@
                 <label for="Dietary">Dietary</label>
             </div>
         </div>
-
+        <button id="showcart">show cart</button>
     </div>
+    
     <div id="results"></div>
 
     <script id="resultsRecipes-template" type="text/x-handlebars-template">
 
         <div class="card-deck">
             {{#each dataRecipes}}
-            <div class="card">
+            <div class="card" id="{{idMeal}}">
                 <h1 class="card-title">{{this.title}}</h1>
                 <img src="{{this.imgUrl}}" class="card-img-top" alt="...">
+                <button  class="btnaddcart">Add <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l.5 2H5V5zM6 5v2h2V5zm3 0v2h2V5zm3 0v2h1.36l.5-2zm1.11 3H12v2h.61zM11 8H9v2h2zM8 8H6v2h2zM5 8H3.89l.5 2H5zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0"/>
+                  </svg></button>
                 <div class="card-body">
                   <h1 class="card-text">Ingredients</h1>
                   <ul>
@@ -43,7 +53,12 @@
                     <li>{{this}}</li>
                     {{/each}}
                 </ul>
-                 </div>
+
+            </div> 
+           
+            
+            
+            
             </div>
             {{/each}}
         </div>
@@ -53,9 +68,10 @@
 
     <script src="jquery/dist/jquery.js"></script>
     <script src="handlebars/dist/handlebars.js"></script>
-    <script src="api.js"></script>
-    <script src="render.js"></script>
-    <script src="main.js"></script>
+    <script src="RecipesConfigs.js"></script>
+    <script src="RecipesModel.js"></script>
+    <script src="RecipesRender.js"></script>
+    <script src="RecipesController.js"></script>
 </body>
 
 </html>

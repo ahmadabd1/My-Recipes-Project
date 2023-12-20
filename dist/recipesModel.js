@@ -4,6 +4,7 @@ class APIModuel{
            return $.get(`/recipes/${ingredient}?dairy=${dairy}&gluten=${gluten}`)
         }
        
+     
 
 }
 
