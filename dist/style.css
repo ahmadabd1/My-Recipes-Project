@@ -151,7 +151,7 @@ label{
   transform: translate(50%,0);
   
 
-color: white;
+color: #ff9600;
 }
 
 .btnaddcart{
@@ -169,4 +169,6 @@ color: white;
 .btnaddcart:hover{
   transform: translateY(-10px);
 }
-
+.deletbtn{
+  background-color: #c42f2f;
+}

@@ -21,5 +21,10 @@ class Render {
         this.displayTheRecipes(this.cartData)
         $(".btnaddcart").hide()
     }
+    deletFromTheCart(idMealdelete){
+        const indexById = this.cartData.findIndex((obj) => obj.idMeal === idMealdelete);
+        this.cartData.splice(indexById,1)
+        this.displayTheCart()
+    }
 }
 

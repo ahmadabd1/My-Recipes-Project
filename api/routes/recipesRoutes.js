@@ -5,22 +5,6 @@ const axios = require('axios')
 const configs = require('../../recipesConfig')
 const recipesFiltersModel = require('../../recipesFiltersModel')
 
-// const filterData = function (recipes, filteredIngredients) {
-//     return recipes.filter(recipe => !recipe.ingredients
-//         .find(ingredient => filteredIngredients.includes(ingredient)))
-// }
-
-// const checkBoxFilter = function (dataRecipes, gluten, dieary) {
-//     let dataR = dataRecipes
-//     if (dieary == "true"){
-//         dataR = (filterData(dataRecipes, configs.dairyIngredients))    
-//     }
-//      if (gluten == "true") {
-//          dataR = filterData(dataRecipes, configs.glutenIngredients)  
-//     }
-//     return dataR
-// }
-
 router.get('/:ingredient', function (req, res) {
     const ingredient = req.params.ingredient
     const gluten = req.query.gluten

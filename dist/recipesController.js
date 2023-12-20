@@ -13,12 +13,13 @@ $("#searchBtn").on("click", () => {
 
     apiModuel.getAllData(inputValue,checkBoxGluten,checkBoxDietary)
     .then(data => {
+        
         render.displayTheRecipes(data)
+        $('.deletbtn').hide()
     })
 })
 
 showDivResult.on('click','.btnaddcart',function(){
-    console.log($(this).closest('.card').attr('id'))
     const idMeal = $(this).closest('.card').attr('id')
     let inputValue = searchBox.val()
     let checkBoxGluten = GLUTEN_ID_CHECKBOX.is(':checked');
@@ -30,4 +31,10 @@ showDivResult.on('click','.btnaddcart',function(){
 })
 $("#showcart").on('click',function(){
     render.displayTheCart()
+})
+showDivResult.on('click','.deletbtn',function(){
+    
+    const idMeal = $(this).closest('.card').attr('id')
+    render.deletFromTheCart(idMeal)
+    
 })
