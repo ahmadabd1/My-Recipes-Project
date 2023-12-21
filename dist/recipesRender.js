@@ -20,6 +20,8 @@ class Render {
     displayTheCart() {
         this.displayTheRecipes(this.cartData)
         $(".btnaddcart").hide()
+        $(".rating").hide()
+
     }
     deletFromTheCart(idMealdelete){
         const indexById = this.cartData.findIndex((obj) => obj.idMeal === idMealdelete);

@@ -3,7 +3,7 @@ const router = express.Router()
 const axios = require('axios')
 
 const configs = require('../../recipesConfig')
-const recipesFiltersModel = require('../../recipesFiltersModel')
+const recipessModel = require('../../recipesModel')
 
 router.get('/:ingredient', function (req, res) {
     const ingredient = req.params.ingredient
@@ -17,11 +17,13 @@ router.get('/:ingredient', function (req, res) {
                     idMeal: data.idMeal,
                     imgUrl: data.thumbnail,
                     href: data.href,
-                    ingredients: data.ingredients
+                    ingredients: data.ingredients,
+                    chefName:recipessModel.addDetails.genrateChefName(),
+                    ratingStars:recipessModel.addDetails.randomStars(1,5)
                 }
             })
 
-            const finallyRecipes = recipesFiltersModel.checkBoxFilter(dataRecipes, gluten, dieary)
+            const finallyRecipes = recipessModel.recipesFiltersModel.checkBoxFilter(dataRecipes, gluten, dieary)
             if (typeof finallyRecipes == "string") {
                 res.status(404).send(finallyRecipes)
             } else {

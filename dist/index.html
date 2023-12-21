@@ -48,7 +48,10 @@
                   </svg></button>
                 <button  class="deletbtn">delete</button>
                 <div class="card-body">
+                    <h2>chef-Name: {{chefName}}</h2>
+                  <h3 class="rating">RatingStars : {{ratingStars}}</h3>
                   <h1 class="card-text">Ingredients</h1>
+                  
                   <ul>
                   {{#each this.ingredients}}
                     <li>{{this}}</li>
