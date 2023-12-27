@@ -13,7 +13,9 @@ router.get('/:ingredient', function (req, res) {
     const dieary = req.query.dairy
     axios.get(`${configs.URLDATAINGREDIENT}/${ingredient}`)
         .then(inRecipesdata => {
+
             const dataRecipes = inRecipesdata.data.results.map((data) => {
+                
                 return {
                     title: data.title,
                     idMeal: data.idMeal,
@@ -23,23 +25,27 @@ router.get('/:ingredient', function (req, res) {
                     chefName:recipessModel.addDetails.genrateChefName(),
                     ratingStars:recipessModel.addDetails.randomStars(1,5)
                 }
+
             })
-            modelImage.getUrlGif(dataRecipes.length).then(urlGif=>{
-                let arrgiffy =[]
-                for(let i=0;i<urlGif.data.data.length;i++){
-                    arrgiffy.push(urlGif.data.data[i].embed_url)
-                }
+
+            modelImage.getUrlGif(dataRecipes.length)
+                .then(urlGif=>{
+                    let arrgiffy =[]
+                    for(let i=0;i<urlGif.data.data.length;i++){
+                        arrgiffy.push(urlGif.data.data[i].embed_url)
+                    }
                 
-                const newdataRecipes = modelImage.swapImageToGif(dataRecipes,arrgiffy)
+                    const newdataRecipes = modelImage.swapImageToGif(dataRecipes,arrgiffy)
                 
-                const finallyRecipes = recipessModel.recipesFiltersModel.checkBoxFilter(newdataRecipes, gluten, dieary)
-                if (typeof finallyRecipes == "string") {
-                    res.status(404).send(finallyRecipes)
-                } else {
+                    const finallyRecipes = recipessModel.recipesFiltersModel.checkBoxFilter(newdataRecipes, gluten, dieary)
+                    if (typeof finallyRecipes == "string") {
+                        res.status(404).send(finallyRecipes)
+                    } else {
     
-                    res.status(200).send(finallyRecipes)
-                }
-            })
+                        res.status(200).send(finallyRecipes)
+                    }
+                })
+
         })
 })
 

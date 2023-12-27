@@ -8,25 +8,31 @@ class Render{
     constructor() {
         this.cartData = []
     }
-    displayTheRecipes(dataRecipes) {
+
+    displayTheRecipes(dataRecipes,numpage) {
         showDivResult.empty()
-        let someHTML = templateRecipes({ dataRecipes: dataRecipes })
-        showDivResult.append(someHTML)
+        // let someHTML = templateRecipes({ dataRecipes : dataRecipes} )
+        let someHTML = templateRecipes( dataRecipes[numpage] )
+        showDivResult.append(someHTML) 
     }
+
     addToCart(idMeal, data) {
         let obj = data.find(meal => meal.idMeal == idMeal)
         this.cartData.push(obj)
     }
+
     displayTheCart() {
-        this.displayTheRecipes(this.cartData)
+        this.displayTheRecipes(this.cartData,1)
         $(".btnaddcart").hide()
-        $(".rating").hide()
+        RATING.hide()
 
     }
+
     deletFromTheCart(idMealdelete){
         const indexById = this.cartData.findIndex((obj) => obj.idMeal === idMealdelete);
         this.cartData.splice(indexById,1)
         this.displayTheCart()
     }
+    
 }
 

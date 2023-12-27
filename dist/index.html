@@ -34,14 +34,18 @@
         </div>
         <button id="showcart">show cart</button>
     </div>
+    <a id="btn_prev"><button>Prev</button></a>
+    <a id="btn_next"><button>Next</button></a>
+
+
+
 
     <div id="results"></div>
 
-    <script id="resultsRecipes-template" type="text/x-handlebars-template">
 
+    <script id="resultsRecipes-template" type="text/x-handlebars-template">
         <div class="card-deck">
-            {{#each dataRecipes}}
-            <div class="card" id="{{idMeal}}">
+            <div class="card" id="{{this.idMeal}}">
                 <h1 class="card-title">{{this.title}}</h1>
                 <iframe src="{{this.imgUrl}}" class="card-img-top" alt="..."></iframe>
                 <button  class="btnaddcart">Add <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4" viewBox="0 0 16 16">
@@ -49,8 +53,8 @@
                   </svg></button>
                 <button  class="deletbtn">delete</button>
                 <div class="card-body">
-                    <h2>chef-Name: {{chefName}}</h2>
-                  <h3 class="rating">RatingStars : {{ratingStars}}</h3>
+                    <h2>chef-Name: {{this.chefName}}</h2>
+                  <h3 class="rating">RatingStars : {{this.ratingStars}}</h3>
                   <h1 class="card-text">Ingredients</h1>
                   
                   <ul>
@@ -61,7 +65,7 @@
                 <a href="mailto:?subject=Check out this recipe! {{this.title}} &body=You can see the recipe in this video : {{this.href}}"><button class="emailus">Email us</button></a>
                 </div>   
             </div>
-            {{/each}}
+    
             
         </div>
 

@@ -44,7 +44,7 @@ class GifImage{
     }
 
     getUrlGif(numOfImage){
-        return axios.get(`https://api.giphy.com/v1/gifs/search?q=recipes food%20cake&api_key=v6NP6FvMrt7gnBBQUXpQs7Q0Uyejg8Rl&limit=${numOfImage}`)
+        return axios.get(`${configs.GIFFY_API}${numOfImage}`)
     }
 
     swapImageToGif(dataRecipes,url_gif){
