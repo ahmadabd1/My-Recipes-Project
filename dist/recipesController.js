@@ -21,13 +21,7 @@ $("#searchBtn").on("click", () => {
 
 showDivResult.on('click','.btnaddcart',function(){
     const idMeal = $(this).closest('.card').attr('id')
-    let inputValue = searchBox.val()
-    let checkBoxGluten = GLUTEN_ID_CHECKBOX.is(':checked');
-    let checkBoxDietary = DIARY_ID_CHECKBOX.is(':checked');
-    apiModuel.getAllData(inputValue,checkBoxGluten,checkBoxDietary)
-    .then(data => {
-        render.addToCart(idMeal,data)
-    })
+    render.addToCart(idMeal, apiModuel.lastData)
 })
 $("#showcart").on('click',function(){
     render.displayTheCart()

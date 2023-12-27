@@ -4,7 +4,7 @@ const sourceRecipes = resultsRecipesTemplate.html()
 const templateRecipes = Handlebars.compile(sourceRecipes)
 
 
-class Render {
+class Render{
     constructor() {
         this.cartData = []
     }
