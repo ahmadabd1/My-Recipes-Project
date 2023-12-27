@@ -1,7 +1,5 @@
-
-
 const express = require('express')
-const router = require('./api/routes/recipesRoutes')
+const router = require('./api/recipesRoutes')
 const path = require('path')
 const PORT = 3000;
 

@@ -1,5 +1,7 @@
 
 const configs = require('./recipesConfig')
+const { faker, ur } = require('@faker-js/faker');
+const { default: axios } = require("axios")
 
 class recipesFiltersModel{
 
@@ -21,7 +23,6 @@ class recipesFiltersModel{
     
 }
 
-const { faker } = require('@faker-js/faker');
 
 class addDetails{
     static genrateChefName(){
@@ -35,8 +36,22 @@ class addDetails{
             return Math.floor(Math.random() * (max - min + 1)) + min;
         
     }
-
+    
 }
 
+class GifImage{
+    constructor(){
+    }
 
-module.exports = {recipesFiltersModel , addDetails}
+    getUrlGif(numOfImage){
+        return axios.get(`https://api.giphy.com/v1/gifs/search?q=recipes food%20cake&api_key=v6NP6FvMrt7gnBBQUXpQs7Q0Uyejg8Rl&limit=${numOfImage}`)
+    }
+
+    swapImageToGif(dataRecipes,url_gif){
+        for(let index=0;index<dataRecipes.length;index++){
+            dataRecipes[index].imgUrl= url_gif[index]
+        }
+        return dataRecipes
+    }
+}
+module.exports = {recipesFiltersModel , addDetails ,GifImage}

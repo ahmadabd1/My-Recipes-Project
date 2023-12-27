@@ -1,9 +1,9 @@
+
 class APIModuel{
 
         constructor() {
                 this.lastData = []
         }
-
         getAllData(ingredient, gluten, dairy) {
                 return $.get(`/recipes/${ingredient}?dairy=${dairy}&gluten=${gluten}`)
                         .then(recipes => {
@@ -13,4 +13,5 @@ class APIModuel{
         }
 
 }
+
 
